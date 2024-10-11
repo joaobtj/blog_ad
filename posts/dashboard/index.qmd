@@ -1,0 +1,144 @@
+---
+title: "Dashboard de Produção Agrícola"
+subtitle: "Exemplo utilizado em aula para demonstrar algumas funcionalidades do ***quarto***"
+author: "João Tolentino"
+date: "2024-10-10"
+categories: [aula]
+freeze: false
+---
+
+
+```{r}
+#| include: false
+library(ggplot2)
+library(dplyr)
+library(gt)
+```
+
+# Dados de produção da fazenda XYZ
+
+Aqui está apresentado um resumo das áreas plantadas, produção e lucratividade das culturas da fazenda XYZ.
+
+```{r}
+#| echo: false
+
+dados <- readxl::read_excel(here::here("posts", "dashboard", "producao.xlsx"),
+  sheet = "Plan1"
+)
+
+gt::gt(dados) |>
+  tab_header(
+    title = "Produtividade Agrícola",
+    subtitle = "Dados de Soja e Milho nos Anos de 2023 e 2024"
+  )  |> 
+  fmt_currency(
+    columns = c(custo_total, receita, lucro_liquido),
+    currency = "BRL"
+  )|>
+  fmt_number(
+    columns = c(produtividade),
+    decimals = 1
+  )|>
+  cols_label(
+    ano = "Ano",
+    cultura = "Cultura",
+    area_plantada = "Área Plantada (ha)",
+    producao = "Produção (toneladas)",
+    produtividade = "Produtividade (ton/ha)",
+    custo_total = "Custo Total (R$)",
+    receita = "Receita (R$)",
+    lucro_liquido = "Lucro Líquido (R$)"
+  )|>
+  tab_source_note(
+    source_note = "Fonte: Fazenda XYZ"
+  )
+```
+
+# Área Plantada por Cultura 
+
+Esta seção explora a área plantada (em hectares) dedicada a cada cultura, fornecendo uma visão sobre como os recursos de terra foram alocados para cada uma.
+
+```{r}
+#| echo: false
+
+dados |>
+  mutate(
+    area_plantada = area_plantada / sum(area_plantada),
+    .by = ano
+  ) |>
+  ggplot(aes(x = "", y = area_plantada, fill = cultura)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  theme_void() +
+  labs(title = "Distribuição da Área Plantada por Cultura") +
+  scale_fill_brewer(palette = "Set1") +
+  geom_text(aes(label = paste0(format(area_plantada * 100, digits = 3), "%")),
+    position = position_stack(vjust = 0.5)
+  ) +
+  theme(
+    legend.title = element_blank(), # Remove título da legenda
+    plot.title = element_text(hjust = 0.5)
+  ) +
+  facet_wrap(~ano,
+             ncol=2)
+```
+
+# Produtividade por Cultura e Ano
+
+Nesta seção, o foco é na produtividade (toneladas por hectare) de cada cultura ao longo dos anos.
+
+```{r}
+#| echo: false
+dados |> ggplot(aes(x = cultura, y = produtividade, fill = factor(ano))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_linedraw() +
+  labs(
+    title = "Produtividade por Cultura e Ano",
+    x = "Cultura",
+    y = "Produtividade (ton/ha)",
+    fill = "Ano"
+  ) +
+  scale_fill_brewer(palette = "Set2")
+```
+
+
+# Produção por Cultura e Ano
+
+Esta parte do dashboard destaca a quantidade total produzida (em toneladas) para cada cultura, permitindo visualizar seu comportamento produtivo ao longo do tempo.
+
+```{r}
+#| echo: false
+dados |> ggplot(aes(x = cultura, y = producao, fill = factor(ano))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_linedraw() +
+  labs(
+    title = "Produção por Cultura e Ano",
+    x = "Cultura",
+    y = "Produtividade (ton/ha)",
+    fill = "Ano"
+  ) +
+  scale_fill_brewer(palette = "Set2")
+```
+
+# Lucro líquido por cultura e por ano
+
+Nesta seção, é enfatizado o lucro líquido obtido por cada cultura, calculado como a diferença entre os valores de receita e os custos totais de produção.
+
+```{r}
+#| echo: false
+
+dados |>
+  mutate(ano = factor(ano)) |>
+  ggplot(aes(x = ano, y = lucro_liquido, color = cultura, group = cultura)) +
+  geom_point(size=3) +
+  geom_line(linewidth=1.0) +
+  theme_classic() +
+  labs(
+    title = "Lucro líquido por cultura e por ano",
+    x = "Ano",
+    y = "Lucro líquido (R$)",
+    color = "Cultura"
+  ) +
+  scale_color_brewer(palette = "Set1") +
+  scale_y_continuous(labels = scales::label_currency(prefix = "R$", big.mark = ".", decimal.mark = ","))
+```

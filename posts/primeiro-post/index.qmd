@@ -1,0 +1,10 @@
+---
+title: "Meu primeiro post"
+author: "João Tolentino"
+date: "2024-10-04"
+categories: [news]
+---
+
+Este é meu primeiro post.
+
+![](gato.jpg)

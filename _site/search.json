@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/primeiro-post/index.html",
+    "href": "posts/primeiro-post/index.html",
+    "title": "Meu primeiro post",
+    "section": "",
+    "text": "Este é meu primeiro post."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog da disciplina de Agricultura Digital",
+    "section": "",
+    "text": "Dashboard de Produção Agrícola\n\n\nExemplo utilizado em aula para demonstrar algumas funcionalidades do quarto\n\n\n\naula\n\n\n\n\n\n\n\n\n\n10 de out. de 2024\n\n\nJoão Tolentino\n\n\n\n\n\n\n\n\n\n\n\n\nMeu primeiro post\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n4 de out. de 2024\n\n\nJoão Tolentino\n\n\n\n\n\n\nNenhum item correspondente"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Sobre",
+    "section": "",
+    "text": "Este blog é um exemplo criado para a disciplina de Agricultura Digital, semestre 2024-2, do curso de Agronomia da UFSC Campus de Curitibanos."
+  },
+  {
+    "objectID": "posts/dashboard/index.html",
+    "href": "posts/dashboard/index.html",
+    "title": "Dashboard de Produção Agrícola",
+    "section": "",
+    "text": "Dados de produção da fazenda XYZ\nAqui está apresentado um resumo das áreas plantadas, produção e lucratividade das culturas da fazenda XYZ.\n\n\n\n\n\n\n\n\nProdutividade Agrícola\n\n\nDados de Soja e Milho nos Anos de 2023 e 2024\n\n\nAno\nCultura\nÁrea Plantada (ha)\nProdução (toneladas)\nProdutividade (ton/ha)\nCusto Total (R$)\nReceita (R$)\nLucro Líquido (R$)\n\n\n\n\n2021\nSoja\n100\n330\n3.3\nR$200,000.00\nR$297,031.00\nR$97,031.00\n\n\n2021\nMilho\n80\n328\n4.1\nR$150,000.00\nR$262,417.00\nR$112,417.00\n\n\n2022\nSoja\n120\n420\n3.5\nR$240,000.00\nR$378,010.00\nR$138,010.00\n\n\n2022\nMilho\n90\n405\n4.5\nR$168,750.00\nR$324,049.00\nR$155,299.00\n\n\n2023\nSoja\n120\n420\n4.0\nR$240,000.00\nR$378,019.00\nR$138,000.00\n\n\n2023\nMilho\n90\n405\n5.0\nR$168,750.00\nR$324,026.00\nR$155,250.00\n\n\n2024\nSoja\n120\n360\n3.0\nR$240,000.00\nR$324,026.00\nR$84,000.00\n\n\n2024\nMilho\n200\n760\n3.8\nR$375,000.00\nR$608,015.00\nR$233,000.00\n\n\n\nFonte: Fazenda XYZ\n\n\n\n\n\n\n\n\n\n\nÁrea Plantada por Cultura\nEsta seção explora a área plantada (em hectares) dedicada a cada cultura, fornecendo uma visão sobre como os recursos de terra foram alocados para cada uma.\n\n\n\n\n\n\n\n\n\n\n\nProdutividade por Cultura e Ano\nNesta seção, o foco é na produtividade (toneladas por hectare) de cada cultura ao longo dos anos.\n\n\n\n\n\n\n\n\n\n\n\nProdução por Cultura e Ano\nEsta parte do dashboard destaca a quantidade total produzida (em toneladas) para cada cultura, permitindo visualizar seu comportamento produtivo ao longo do tempo.\n\n\n\n\n\n\n\n\n\n\n\nLucro líquido por cultura e por ano\nNesta seção, é enfatizado o lucro líquido obtido por cada cultura, calculado como a diferença entre os valores de receita e os custos totais de produção."
+  }
+]

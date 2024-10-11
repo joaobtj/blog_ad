@@ -1,0 +1,16 @@
+---
+title: "Sobre"
+image: kenny.jpg
+about:
+  template: trestles
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/joaobtj/
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/prof.joao.tolentino/
+
+---
+
+Este blog é um exemplo criado para a disciplina de Agricultura Digital, semestre 2024-2, do curso de Agronomia da UFSC Campus de Curitibanos.

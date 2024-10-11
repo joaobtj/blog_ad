@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 2e5f7ab6-1948-4563-adfa-1919e65376f3
+      url: 'https://agriculturadigital.netlify.app'
